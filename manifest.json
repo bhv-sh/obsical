@@ -3,7 +3,7 @@
 	"name": "ObsiCal",
 	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Automatically create Google Calendar events from Markdown lines ending with #event",
+	"description": "Automatically create Google Calendar events from Markdown lines ending with #event.",
 	"author": "Bhavish Nadar",
 	"authorUrl": "https://bhavish-nadar.netlify.app/",
 	"isDesktopOnly": false
