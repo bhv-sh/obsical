@@ -86,9 +86,9 @@ export default class GoogleCalendarPlugin extends Plugin {
         continue;
       }
 
-      const title = match[1].trim() || "Event";
-      const startRaw = match[2];
-      const endRaw = match[3];
+	  const title = (match[1]?.trim() || "Event") as string;
+      const startRaw = match[2]!;
+      const endRaw = match[3]!;
 
       try {
         await this.createGoogleEvent(title, startRaw, endRaw);
