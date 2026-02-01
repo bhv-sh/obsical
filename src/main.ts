@@ -86,7 +86,7 @@ export default class GoogleCalendarPlugin extends Plugin {
         continue;
       }
 
-	  const title = (match[1]?.trim() || "Event") as string;
+	  const title = (match[1]?.trim() || "Event");
       const startRaw = match[2]!;
       const endRaw = match[3]!;
 
@@ -236,14 +236,14 @@ class GoogleCalendarSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    new Setting(containerEl).setHeading().setName("Google Calendar Plugin Settings");
+    new Setting(containerEl).setHeading().setName("Google calendar config");
 
     new Setting(containerEl)
       .setName("Client ID")
-      .setDesc("Your Google OAuth client ID")
+      .setDesc("Google OAUTH client ID")
       .addText((text) =>
         text
-          .setPlaceholder("Enter Client ID")
+          .setPlaceholder("Client ID")
           .setValue(this.plugin.settings.clientId)
           .onChange(async (value) => {
             this.plugin.settings.clientId = value.trim();
@@ -252,11 +252,11 @@ class GoogleCalendarSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Client Secret")
-      .setDesc("Your Google OAuth client secret")
+      .setName("Client secret")
+      .setDesc("Google OAUTH client secret")
       .addText((text) =>
         text
-          .setPlaceholder("Enter Client Secret")
+          .setPlaceholder("Client secret")
           .setValue(this.plugin.settings.clientSecret)
           .onChange(async (value) => {
             this.plugin.settings.clientSecret = value.trim();
@@ -265,11 +265,11 @@ class GoogleCalendarSettingTab extends PluginSettingTab {
       );
 
     new Setting(containerEl)
-      .setName("Redirect URI")
-      .setDesc("Redirect URI for OAuth (default http://localhost)")
+      .setName("Redirect uri")
+      .setDesc("Redirect uri for OAUTH")
       .addText((text) =>
         text
-          .setPlaceholder("Enter Redirect URI")
+          .setPlaceholder("Redirect uri")
           .setValue(this.plugin.settings.redirectUri)
           .onChange(async (value) => {
             this.plugin.settings.redirectUri = value.trim();
@@ -297,7 +297,7 @@ class AuthCodeModal extends Modal {
 
   onOpen(): void {
     const { contentEl } = this;
-    contentEl.createEl("h3", { text: "Enter Google OAuth code" });
+    contentEl.createEl("h3", { text: "Google OAUTH code" });
 
     const input = contentEl.createEl("input");
     input.type = "text";
